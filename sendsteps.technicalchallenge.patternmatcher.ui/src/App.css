@@ -1,0 +1,155 @@
+.App {
+  text-align: center;
+  padding: 50px;
+  background-color: bisque;
+}
+.App-result {
+  border: 1px dashed gray;
+  border-radius: 20px;
+  z-index: 4;
+  transition: all .3s ease-in-out;
+  min-height: 500px;
+  min-width: 35%;
+  max-height: 500px;
+  overflow-y: scroll;
+  
+}
+
+.App-errors {
+  color: orangered;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.App-data{
+  margin:5px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.errorText {
+  font-size: 16px;
+}
+
+
+.App-logo {
+  height: 4vmin;
+  z-index: 0;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  margin-bottom: 15px;
+}
+
+.App-form {
+  z-index: 3;
+}
+
+
+.App-form-container {
+  background-color: rgba(108, 59, 110, 0.267);
+  border-radius: 20px;
+  z-index: 4;
+  transition: all .3s ease-in-out;
+  min-height: 500px;
+  min-width: 35%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+
+}
+
+.form-item {
+  display: block;
+  text-align: left;
+
+}
+
+.sent {
+  transform: rotate(720deg) rotateX(0deg);
+  background-color: orangered !important;
+}
+
+.form-item input,
+textarea,
+button {
+  min-width: 300px;
+  width: 100%;
+}
+
+.form-item input[type=submit],
+input[type=button] {
+  height: 50px;
+  border-radius: 5px;
+  background-color: goldenrod;
+  align-content: center;
+  margin: 10px 5px 1px 5px;
+  opacity: 0.7;
+  transition: all .3s ease-in;
+  border:none;
+}
+
+.form-item input[type=submit]:hover {
+  opacity: 1;
+
+}
+
+.form-item input[type=submit]:disabled {
+  color: white;
+}
+
+.form-item input[type=button]:focus {
+  background-color: olivedrab;
+  transform: rotateX(0deg);
+  opacity: 1;
+}
+
+
+.App-form-container label {
+  display: block;
+  color: white;
+  font-size: 16px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
+.App-header {
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  min-height: 700px;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.occurences, .overlappings{
+  font-size: 22px;
+  text-align: left;
+  color:royalblue;
+}
+
+.occurence, .overlapping{
+  font-size:14px;
+  text-align: left;
+  color:orangered;
+}

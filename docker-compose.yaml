@@ -1,0 +1,25 @@
+# Please refer https://aka.ms/HTTPSinContainer on how to setup an https developer certificate for your ASP .NET Core service.
+
+version: "3.4"
+
+services:
+  svc-patternmatcher:
+    image: img-patternmatcher
+    container_name: ctr-patternmatcher
+    restart: always
+    environment:
+      - ASPNETCORE_URLS=http://+:5000
+    build:
+      context: .
+      dockerfile: Sendsteps.TechChallenge.Host/Dockerfile
+    ports:
+      - 5000:5000
+  svc-pattternmatcher-ui:
+    image: img-patternmatcher-ui
+    container_name: ctr-patternmatcher-ui
+    restart: always
+    build:
+        context: ./sendsteps.technicalchallenge.patternmatcher.ui
+        dockerfile: Dockerfile
+    ports:
+      - 3000:80

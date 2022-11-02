@@ -1,0 +1,19 @@
+{
+  "Version": 1,
+  "Hash": "4lui9R3LDs5DW9tPbB6IYIbTi+ppTyjYR+22bTtb9iU=",
+  "Source": "Sendsteps.TechChallenge.Host",
+  "BasePath": "_content/Sendsteps.TechChallenge.Host",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "Sendsteps.TechChallenge.Host\\wwwroot",
+      "Source": "Sendsteps.TechChallenge.Host",
+      "ContentRoot": "C:\\Users\\malia\\source\\repos\\Sendsteps.TechChallenge\\Sendsteps.TechChallenge.Host\\wwwroot\\",
+      "BasePath": "_content/Sendsteps.TechChallenge.Host",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": []
+}
