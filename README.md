@@ -1,7 +1,7 @@
 # Getting Started
 
 ### Run the application
-The application is very easy configure and run.
+The application is very to easy configure and run.
 Just follow the starightforward steps to do so.
 
 Prerequisite: A docker installed environment which has 3000 and 5000 ports are not in use.
