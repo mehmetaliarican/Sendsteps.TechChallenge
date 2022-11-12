@@ -287,3 +287,5 @@ thumb
 sketch
 
 # End of https://www.toptal.com/developers/gitignore/api/aspnetcore,react
+/ApiUnitTests/obj/Debug/net6.0/ref/ApiUnitTests.dll
+/.vs/Sendsteps.TechChallenge/v17/TestStore/0/000.testlog
