@@ -108,19 +108,22 @@ namespace Business.Concrete
         {
 
             var possibilities = new List<string>();
-
+            var indexCharDict = new Dictionary<int, char>();
             for (int i = 0; i < secondary.Length; i++)
             {
-                var sSub = secondary.Substring(i);
-                var indexCharDict = new Dictionary<int, char>();
-                for (int j = 0; j < sSub.Length; j++)
+                indexCharDict.Clear();
+                for (int j = i; j < secondary.Length; j++)
                 {
-                    var c = sSub[j];
-                    var indexes = FindAllIndexesOfCharacter(primary, c);
-                    if (indexCharDict.All(di => indexes.Any(x => di.Key < x)) && indexes.Count > 0)
+                    var indexes = primary.Select((v, i) =>
+                    {
+                        if (v == secondary[j]) return i;
+                        return -1;
+                    }).Where(x => x != -1).ToArray();
+
+                    if (indexCharDict.All(di => indexes.Any(x => di.Key < x)) && indexes.Length > 0)
                     {
                         var index = indexes.First(x => indexCharDict.All(di => di.Key < x));
-                        indexCharDict.Add(index, c);
+                        indexCharDict.Add(index, secondary[j]);
 
                     }
                 }
@@ -130,19 +133,6 @@ namespace Business.Concrete
             }
             var maxLength = possibilities.Max(x => x.Length);
             return possibilities.Where(x => x.Length == maxLength).ToList();
-        }
-
-
-
-        public List<int> FindAllIndexesOfCharacter(string word, char character)
-        {
-            var indexes = new List<int>();
-            for (int i = 0; i < word.Length; i++)
-            {
-                if (word[i] == character)
-                    indexes.Add(i);
-            }
-            return indexes;
         }
 
     }
