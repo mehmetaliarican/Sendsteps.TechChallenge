@@ -13,7 +13,7 @@ namespace BusinessUnitTests.PatternMatchingTests
     public class CaseNullValueUnitTests : TestBase
     {
         private Mock<IPatternMatchingService> _mockService;
-        public override void Arrange()
+        protected override void Arrange()
         {
             _mockService = new Mock<IPatternMatchingService>();
            
@@ -21,7 +21,7 @@ namespace BusinessUnitTests.PatternMatchingTests
 
 
         [Theory]
-        [MemberData("TestFailData")]
+        [MemberData("NullData")]
         public void ShouldFailUponNullValue(PatternMatchingRequest request)
         {
             Arrange();
@@ -32,16 +32,16 @@ namespace BusinessUnitTests.PatternMatchingTests
             });
         }
 
-        private static IEnumerable<object[]> TestFailData()
+        private static IEnumerable<object[]> NullData()
         {
             var firstCase= new object[]
             {
-                new PatternMatchingRequest {  Text = "", Word = ""}
+                new PatternMatchingRequest {  Primary = "", Secondary = ""}
             };
 
             var secondcase = new object[]
            {
-                new PatternMatchingRequest {  Text = null, Word = null}
+                new PatternMatchingRequest {  Primary = null, Secondary = null}
            };
 
            var thirdCase = new object[]

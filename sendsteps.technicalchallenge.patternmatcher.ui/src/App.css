@@ -11,16 +11,17 @@
   min-height: 500px;
   min-width: 35%;
   max-height: 500px;
-  overflow-y: scroll;
+  overflow-y: auto;
   
 }
 
 .App-errors {
   color: orangered;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
+  margin:5px;
 }
 .App-data{
   margin:5px;
@@ -46,21 +47,23 @@
 
 .App-form {
   z-index: 3;
-}
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  min-height: 500px;
+  min-width: 35%;
 
+}
 
 .App-form-container {
   background-color: rgba(108, 59, 110, 0.267);
   border-radius: 20px;
   z-index: 4;
   transition: all .3s ease-in-out;
+ 
   min-height: 500px;
   min-width: 35%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-evenly;
-
 }
 
 .form-item {
@@ -75,8 +78,8 @@
 }
 
 .form-item input,
-textarea,
-button {
+.form-item textarea,
+.form-item button {
   min-width: 300px;
   width: 100%;
 }
@@ -127,6 +130,9 @@ input[type=button] {
   color: white;
   min-height: 700px;
 }
+.App-header:nth-child(0){
+  display: block !important;
+}
 
 .App-link {
   color: #61dafb;
@@ -142,14 +148,13 @@ input[type=button] {
   }
 }
 
-.occurences, .overlappings{
+.result-items{
   font-size: 22px;
   text-align: left;
   color:royalblue;
 }
 
-.occurence, .overlapping{
+.result-item {
   font-size:14px;
   text-align: left;
-  color:orangered;
 }

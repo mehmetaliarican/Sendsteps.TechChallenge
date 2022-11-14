@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Business.Abstract
 {
-    public interface IPatternMatchingService : IMatcherService<PatternMatchingRequest, PatternMatchingResult>, IAsyncMatcherService<PatternMatchingRequest,PatternMatchingResult>
+    public interface IPatternMatchingService : IMatcherService<PatternMatchingRequest, MatchingResult>, IAsyncMatcherService<PatternMatchingRequest,MatchingResult>
     {
     }
 }

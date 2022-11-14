@@ -9,7 +9,7 @@ namespace ApiUnitTests.PatternMatchingTests
 {
     public class MatchTests : TestBase
     {
-        public override void Arrange()
+        protected override void Arrange()
         {
             
         }

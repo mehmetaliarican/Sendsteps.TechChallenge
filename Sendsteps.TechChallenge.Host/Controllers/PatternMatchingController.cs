@@ -1,4 +1,5 @@
 using Business.Abstract;
+using Domain.Consistency;
 using Domain.PatternMatching.Request;
 using Domain.PatternMatching.Result;
 using Microsoft.AspNetCore.Mvc;
@@ -22,13 +23,15 @@ namespace Sendsteps.TechnicalChallenge.PatternMatcher.Host.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<PatternMatchingResult>> Match([FromBody]PatternMatchingRequest request)
+        public async Task<ActionResult<MatchingResult>> Match([FromBody]PatternMatchingRequest request)
         {
             try
             {
-                _logger.LogInformation(Request.HttpInfo($"Executing the request for word : '{request.Word}'"));
+                _logger.LogInformation(Request.HttpInfo($"Executing the request for words : '{request.Primary} and {request.Secondary}'"));
+                request.Primary.Trim();
+                request.Secondary.Trim();
                 var result = await _patternMatchingService.MatchAsync(request);
-                return Ok(result);
+                return Ok(new GenericHttpResponse<MatchingResult>(result));
             }
             catch (Exception ex)
             {

@@ -8,6 +8,6 @@ namespace Shared.CuttingConcerns.UnitTesting
 {
     public abstract class TestBase
     {
-        public abstract void Arrange();
+        protected abstract void Arrange();
     }
 }
