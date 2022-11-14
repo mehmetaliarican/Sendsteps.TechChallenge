@@ -55,20 +55,28 @@ namespace Business.Concrete
             }
         }
 
-        public Task SetOccurencesAsync(MatchingResult result, PatternMatchingRequest input)
+        public async Task SetOccurencesAsync(MatchingResult result, PatternMatchingRequest input)
         {
             try
             {
-                result.Occurrences = FindOccurringWords(input.Primary, input.Secondary);
-                result.Occurrences.AddRange(FindOccurringWords(input.Secondary, input.Primary));
+               var results =  await Task.WhenAll(
+                          Task.FromResult(FindOccurringWords(input.Primary, input.Secondary)),
+                          Task.FromResult(FindOccurringWords(input.Secondary, input.Primary))
+                        );
+
+                foreach (var collection in results)
+                {
+                    result.Occurrences.AddRange(collection);
+                }
                 var max = result.Occurrences.Max(x => x.Length);
-                result.Occurrences = result.Occurrences.Where(x => x.Length == max).Distinct().ToList();
-                return Task.CompletedTask;
+                result.Occurrences = result.Occurrences
+                        .Where(x => x.Length == max)
+                        .Distinct()
+                        .ToList();
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "SetExpected error");
-                return Task.CompletedTask;
             }
         }
 
