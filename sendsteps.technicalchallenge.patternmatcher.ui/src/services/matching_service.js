@@ -30,7 +30,7 @@ export class MatchingService {
         let hasError = false;
         let promise = undefined;
 
-        await fetch("http://localhost:5001/patternmatching",
+        await fetch("http://localhost:5000/patternmatching",
             {
                 method: "POST",
                 headers: { 'Content-Type': 'application/json' },
